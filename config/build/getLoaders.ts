@@ -4,6 +4,20 @@ import {IBuildOptions} from "./types/config";
 
 export function getLoaders({ isDev }: IBuildOptions): webpack.RuleSetRule[] {
 
+    const svgLoader = {
+        test: /\.svg$/,
+        use: ['@svgr/webpack']
+    }
+
+    const fileLoader = {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+            {
+                loader: 'file-loader'
+            }
+        ]
+    }
+
     const cssLoader = {
         test: /\.s[ac]ss$/i,
         use: [
@@ -23,7 +37,6 @@ export function getLoaders({ isDev }: IBuildOptions): webpack.RuleSetRule[] {
         ],
     }
 
-    // Если не используем тайпскрипт - нужен babel-loader
     const typescriptLoader = {
         test: /\.tsx?$/,
         use: 'ts-loader',
@@ -31,6 +44,8 @@ export function getLoaders({ isDev }: IBuildOptions): webpack.RuleSetRule[] {
     }
 
     return [
+        fileLoader,
+        svgLoader,
         typescriptLoader,
         cssLoader,
     ]
