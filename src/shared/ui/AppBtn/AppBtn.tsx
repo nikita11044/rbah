@@ -1,6 +1,6 @@
-import {classNames} from "shared/lib/classNames/classNames";
-import styles from './AppBtn.module.scss'
-import {ButtonHTMLAttributes, FC} from "react";
+import { classNames } from 'shared/lib/classNames/classNames';
+import { ButtonHTMLAttributes, FC } from 'react';
+import styles from './AppBtn.module.scss';
 
 export enum AppButtonTheme {
     CLEAR = 'clear'
@@ -16,12 +16,14 @@ export const AppBtn: FC<IAppBtnProps> = (props) => {
         className,
         children,
         theme = AppButtonTheme.CLEAR,
-        ...otherProps } = props
+        ...otherProps
+    } = props;
 
     return (
         <button
             className={classNames(styles.AppBtn, {}, [className, styles[theme]])}
-            {...otherProps}>
+            {...otherProps}
+        >
             {children}
         </button>
     );

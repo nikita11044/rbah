@@ -1,5 +1,5 @@
-import { ThemeSwitch } from './ui/ThemeSwitch'
+import { ThemeSwitch } from './ui/ThemeSwitch';
 
 export {
-    ThemeSwitch
+    ThemeSwitch,
 };

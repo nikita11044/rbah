@@ -1,11 +1,14 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
-const Main = () => {
+function Main() {
+    const { t } = useTranslation('main');
+
     return (
         <div>
-            Main
+            {t('Главная')}
         </div>
     );
-};
+}
 
 export default Main;
