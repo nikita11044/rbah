@@ -5,13 +5,14 @@ import { useTheme } from 'app/providers/ThemeProvider';
 import { AppRouter } from 'app/providers/router';
 import { Navbar } from 'widgets/Navbar/ui/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
+import { Loader } from 'widgets/Loader';
 
 function App() {
     const { theme } = useTheme();
 
     return (
         <div className={classNames('app', {}, [theme])}>
-            <Suspense fallback="...">
+            <Suspense fallback={<Loader />}>
                 <Navbar />
                 <div className="content">
                     <Sidebar />
