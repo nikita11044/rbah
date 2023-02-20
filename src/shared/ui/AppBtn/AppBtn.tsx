@@ -21,7 +21,13 @@ export const AppBtn: FC<IAppBtnProps> = (props) => {
 
     return (
         <button
-            className={classNames(styles.AppBtn, {}, [className, styles[theme]])}
+            className={
+                classNames(
+                    styles.AppBtn,
+                    {},
+                    [className, styles[theme]],
+                )
+            }
             {...otherProps}
         >
             {children}
