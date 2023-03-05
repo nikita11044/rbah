@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import React from 'react';
-import { AppBtn, AppButtonTheme } from 'shared/ui';
+import { AppBtn, AppBtnTheme } from 'shared/ui';
 
 interface ILangSwitchProps {
     className?: string
@@ -16,7 +16,7 @@ export const LangSwitch = ({ className }: ILangSwitchProps) => {
 
     return (
         <div className={classNames('', {}, [className])}>
-            <AppBtn theme={AppButtonTheme.CLEAR} onClick={switchLang}>{t('Язык')}</AppBtn>
+            <AppBtn theme={AppBtnTheme.CLEAR} onClick={switchLang}>{t('Язык')}</AppBtn>
         </div>
     );
 };

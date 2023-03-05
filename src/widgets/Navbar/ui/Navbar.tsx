@@ -8,19 +8,19 @@ interface INavbarProps {
     className?: string
 }
 
-export const Navbar = ({ className }: INavbarProps) => {
-    const { t } = useTranslation('translation');
+export const Navbar = ({ className }: INavbarProps) =>
+// const { t } = useTranslation('translation');
 
-    return (
+    // eslint-disable-next-line implicit-arrow-linebreak
+    (
         <div className={classNames(styles.Navbar, {}, [className])}>
             <div className={styles.links}>
-                <AppLink to="/" theme={AppLinkTheme.SECONDARY} className={styles.mainLink}>
-                    {t('Главная')}
-                </AppLink>
-                <AppLink to="/about" theme={AppLinkTheme.SECONDARY}>
-                    {t('О сайте')}
-                </AppLink>
+                {/* <AppLink to="/" theme={AppLinkTheme.SECONDARY} className={styles.mainLink}> */}
+                {/*    {t('Главная')} */}
+                {/* </AppLink> */}
+                {/* <AppLink to="/about" theme={AppLinkTheme.SECONDARY}> */}
+                {/*    {t('О сайте')} */}
+                {/* </AppLink> */}
             </div>
         </div>
     );
-};

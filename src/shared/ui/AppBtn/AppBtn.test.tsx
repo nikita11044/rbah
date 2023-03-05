@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { AppBtn, AppButtonTheme } from './AppBtn';
+import { AppBtn, AppBtnTheme } from './AppBtn';
 
 describe('AppBtn', () => {
     test('AppBtn renders', () => {
@@ -8,7 +8,7 @@ describe('AppBtn', () => {
     });
 
     test('AppBtn has the right theme class', () => {
-        render(<AppBtn theme={AppButtonTheme.CLEAR}>AppBtn</AppBtn>);
+        render(<AppBtn theme={AppBtnTheme.CLEAR}>AppBtn</AppBtn>);
         expect(screen.getByText('AppBtn')).toHaveClass('clear');
         screen.debug();
     });
