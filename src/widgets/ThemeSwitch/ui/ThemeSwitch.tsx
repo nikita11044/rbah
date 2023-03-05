@@ -3,7 +3,7 @@ import React from 'react';
 import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import DarkThemeIcon from 'shared/assets/icons/theme-dark.svg';
 import LightThemeIcon from 'shared/assets/icons/theme-light.svg';
-import { AppBtn } from 'shared/ui';
+import { AppBtn, AppButtonTheme } from 'shared/ui';
 
 interface IThemeSwitchProps {
     className?: string
@@ -14,6 +14,7 @@ export const ThemeSwitch = ({ className }: IThemeSwitchProps) => {
 
     return (
         <AppBtn
+            theme={AppButtonTheme.CLEAR}
             className={classNames('', {}, [className])}
             onClick={changeTheme}
         >

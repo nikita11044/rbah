@@ -3,6 +3,7 @@ import { ButtonHTMLAttributes, FC } from 'react';
 import styles from './AppBtn.module.scss';
 
 export enum AppButtonTheme {
+    OUTLINE = 'outline',
     CLEAR = 'clear'
 }
 
@@ -15,7 +16,7 @@ export const AppBtn: FC<IAppBtnProps> = (props) => {
     const {
         className,
         children,
-        theme = AppButtonTheme.CLEAR,
+        theme = AppButtonTheme.OUTLINE,
         ...otherProps
     } = props;
 
