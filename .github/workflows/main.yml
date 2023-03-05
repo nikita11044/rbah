@@ -18,13 +18,17 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: install modules
+      - name: npm install
         run: npm install
-      - name: build production project
+      - name: build:prod
         run: npm run build:prod
-      - name: lint typescript
+      - name: lint:ts
         run: npm run lint:ts
-      - name: lint scss
+      - name: lint:scss
         run: npm run lint:scss
-      - name: unit tests
+      - name: test:unit
         run: npm run test:unit
+      - name: storybook:build
+        run: npm run storybook:build
+      - name: test:screenshot
+        run: npm run test:screenshot:ci
