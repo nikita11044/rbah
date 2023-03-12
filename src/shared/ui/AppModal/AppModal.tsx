@@ -4,33 +4,35 @@ import React, {
 } from 'react';
 import { Portal } from 'shared/ui/Portal/Portal';
 import { useTheme } from 'app/providers/ThemeProvider';
-import styles from './Modal.module.scss';
+import styles from './AppModal.module.scss';
 
 interface IModalProps {
     className?: string
     children?: ReactNode
     isOpen?: boolean
-    onClose?: () => void
+    onClose?: () => void,
+    lazy?: boolean
 }
 
 const ANIMATION_DELAY = 300;
 
-export const Modal = ({
+export const AppModal = ({
     className,
     children,
     isOpen,
     onClose,
+    lazy,
 }: IModalProps) => {
     const [isClosing, setIsClosing] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
+
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
-    // TODO: переделать: тема должна определяться в одном месте
     const { theme } = useTheme();
 
     const mods: Record<string, boolean> = {
         [styles.open]: isOpen,
         [styles.isClosing]: isClosing,
-        [styles[theme]]: true,
     };
 
     const handleClose = useCallback(() => {
@@ -55,6 +57,12 @@ export const Modal = ({
 
     useEffect(() => {
         if (isOpen) {
+            setIsMounted(true);
+        }
+    }, [isOpen]);
+
+    useEffect(() => {
+        if (isOpen) {
             window.addEventListener('keydown', handleKeyDown);
         }
 
@@ -64,9 +72,13 @@ export const Modal = ({
         };
     }, [isOpen, handleKeyDown]);
 
+    if (lazy && !isMounted) {
+        return null;
+    }
+
     return (
         <Portal>
-            <div className={classNames(styles.Modal, mods, [className])}>
+            <div className={classNames(styles.AppModal, mods, ['app_modal', className, theme])}>
                 <div className={styles.overlay} onClick={handleClose}>
                     <div
                         className={styles.content}

@@ -1,4 +1,4 @@
-.Modal {
+.AppModal {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -8,16 +8,6 @@
     pointer-events: none;
     z-index: -1;
     color: var(--primary-color);
-}
-
-.Modal.dark {
-    --bg-color: #090949;
-    --primary-color: #04ff04;
-}
-
-.Modal.light {
-    --bg-color: #e8e8ea;
-    --primary-color: #0449e0;
 }
 
 .overlay {

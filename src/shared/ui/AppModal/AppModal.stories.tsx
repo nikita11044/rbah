@@ -3,14 +3,14 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { Modal } from 'widgets/Modal/Modal';
+import { AppModal } from 'shared/ui/AppModal/AppModal';
 
 export default {
-    title: 'widgets/Modal',
-    component: Modal,
-} as ComponentMeta<typeof Modal>;
+    title: 'widgets/AppModal',
+    component: AppModal,
+} as ComponentMeta<typeof AppModal>;
 
-const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
+const Template: ComponentStory<typeof AppModal> = (args) => <AppModal {...args} />;
 
 export const Light = Template.bind({});
 

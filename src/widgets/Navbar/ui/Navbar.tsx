@@ -1,7 +1,8 @@
 import React, { useCallback, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { AppBtn, AppBtnTheme, Modal } from 'shared/ui';
+import { AppBtn, AppBtnTheme, AppModal } from 'shared/ui';
 import { useTranslation } from 'react-i18next';
+import { LoginModal } from 'features';
 import styles from './Navbar.module.scss';
 
 interface INavbarProps {
@@ -12,8 +13,12 @@ export const Navbar = ({ className }: INavbarProps) => {
     const { t } = useTranslation('translation');
     const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
 
-    const handleModalToggle = useCallback(() => {
-        setIsAuthModalOpen((prev) => !prev);
+    const handleModalClose = useCallback(() => {
+        setIsAuthModalOpen(false);
+    }, []);
+
+    const handleModalOpen = useCallback(() => {
+        setIsAuthModalOpen(true);
     }, []);
 
     return (
@@ -21,14 +26,11 @@ export const Navbar = ({ className }: INavbarProps) => {
             <AppBtn
                 theme={AppBtnTheme.CLEAR}
                 className={styles.links}
-                onClick={handleModalToggle}
+                onClick={handleModalOpen}
             >
                 {t('Войти')}
             </AppBtn>
-            <Modal isOpen={isAuthModalOpen} onClose={handleModalToggle}>
-                {/* eslint-disable-next-line max-len */}
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, dicta doloremque ducimus illo natus tempora velit. Commodi cupiditate et facere fugiat ipsa libero maxime neque, obcaecati officia praesentium quod, reprehenderit.
-            </Modal>
+            <LoginModal isOpen={isAuthModalOpen} onClose={handleModalClose} />
         </div>
     );
 };

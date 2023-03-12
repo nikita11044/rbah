@@ -1,11 +1,13 @@
-import { AppBtn, AppBtnTheme } from 'shared/ui/AppBtn/AppBtn';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { Modal } from 'widgets/Modal/Modal';
+import { AppBtn, AppBtnTheme } from './AppBtn/AppBtn';
+import { AppLink, AppLinkTheme } from './AppLink/AppLink';
+import { AppModal } from './AppModal/AppModal';
+import { AppInput } from './AppInput/AppInput';
 
 export {
     AppLink,
     AppLinkTheme,
     AppBtn,
     AppBtnTheme,
-    Modal,
+    AppModal,
+    AppInput,
 };
