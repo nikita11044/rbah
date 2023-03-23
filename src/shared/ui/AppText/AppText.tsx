@@ -1,0 +1,23 @@
+import { classNames } from 'shared/lib/classNames/classNames';
+import styles from './AppText.module.scss';
+
+export enum AppTextTheme {
+    PRIMARY = 'primary',
+    ERROR = 'error'
+}
+
+interface IAppTextProps {
+    className?: string
+    title?: string
+    text?: string
+    theme?: AppTextTheme
+}
+
+export const AppText = ({
+    className, title, text, theme,
+}: IAppTextProps) => (
+    <div className={classNames(styles.AppText, { [styles[theme]]: true }, [className])}>
+        {title && <p className={styles.title}>{title}</p>}
+        {text && <p className={styles.text}>{text}</p>}
+    </div>
+);

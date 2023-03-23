@@ -4,5 +4,9 @@
   "Язык": "EN",
   "Страница не найдена": "Page not found",
   "Непредвиденная ошибка": "Unexpected error",
-  "Войти": "Log in"
+  "Войти": "Log in",
+  "Имя пользователя": "Username",
+  "Пароль": "Password",
+  "Неверный логин или пароль": "Incorrect username or password",
+  "Выйти": "Log out"
 }

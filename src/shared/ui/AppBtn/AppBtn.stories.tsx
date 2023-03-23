@@ -97,3 +97,11 @@ SquareSizeXl.args = {
     square: true,
     size: AppBtnSize.XL,
 };
+
+export const Disabled = Template.bind({});
+
+Disabled.args = {
+    children: 'disabled',
+    theme: AppBtnTheme.OUTLINE,
+    disabled: true,
+};
