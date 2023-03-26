@@ -12,6 +12,7 @@ export default (env: IBuildEnv) => {
 
     const mode = env.mode || 'development';
     const PORT = env.port || 3000;
+    const baseUrl = env.baseUrl || 'http://localhost:8000';
 
     const isDev = mode === 'development';
 
@@ -20,5 +21,6 @@ export default (env: IBuildEnv) => {
         paths,
         isDev,
         port: PORT,
+        baseUrl,
     });
 };

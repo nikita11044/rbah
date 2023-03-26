@@ -3,6 +3,7 @@ import path from 'path';
 export default {
     globals: {
         __IS_DEV__: true,
+        __BASE_URL__: '',
     },
     clearMocks: true,
     testEnvironment: 'jsdom',
