@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { USER_LOCAL_STORAGE_KEY } from 'shared/const/localStorage';
+import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
+import { fetchProfile } from 'entities/Profile';
 import { IProfile, IProfileSchema } from '../types/profileSchema';
 
 const initialState: IProfileSchema = {
-    profile: undefined,
+    profileData: undefined,
     isLoading: false,
     error: undefined,
     readonly: true,
@@ -12,10 +13,27 @@ const initialState: IProfileSchema = {
 const profileSlice = createSlice({
     name: 'profile',
     initialState,
-    reducers: {
-        setAuthData: (state, action: PayloadAction<IProfile>) => {
-            state.profile = action.payload;
-        },
+    reducers: {},
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchProfile.pending, (state) => {
+                state.error = undefined;
+                state.isLoading = true;
+            })
+            .addCase(
+                fetchProfile.fulfilled,
+                (
+                    state,
+                    action: PayloadAction<IProfile>,
+                ) => {
+                    state.isLoading = false;
+                    state.profile = action.payload;
+                },
+            )
+            .addCase(fetchProfile.rejected, (state, action) => {
+                state.isLoading = false;
+                state.error = action.payload;
+            });
     },
 });
 

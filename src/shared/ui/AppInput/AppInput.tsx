@@ -9,7 +9,7 @@ type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onC
 interface IAppInputProps extends HTMLInputProps {
     className?: string
     value?: string
-    onChange: (value: string) => void,
+    onChange?: (value: string) => void,
 }
 
 export const AppInput = memo(({
