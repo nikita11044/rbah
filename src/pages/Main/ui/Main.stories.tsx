@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import Main from 'pages/Main/ui/Main';
+import Main from './Main';
 
 export default {
     title: 'pages/Main',

@@ -1,5 +1,5 @@
 import { StoreProvider } from './ui/StoreProvider';
-import { createReduxStore } from './config/store';
+import { createReduxStore, AppDispatch } from './config/store';
 import { IGlobalStateSchema, IStoreWithReducerManager } from './config/stateSchema';
 
 export {
@@ -7,4 +7,5 @@ export {
     createReduxStore,
     IGlobalStateSchema,
     IStoreWithReducerManager,
+    AppDispatch,
 };

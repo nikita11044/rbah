@@ -1,13 +1,13 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React from 'react';
+import React, { memo } from 'react';
 import { AppBtn, AppBtnTheme } from 'shared/ui';
 
 interface ILangSwitchProps {
     className?: string
 }
 
-export const LangSwitch = ({ className }: ILangSwitchProps) => {
+export const LangSwitch = memo(({ className }: ILangSwitchProps) => {
     const { t, i18n } = useTranslation();
 
     const switchLang = () => {
@@ -19,4 +19,4 @@ export const LangSwitch = ({ className }: ILangSwitchProps) => {
             <AppBtn theme={AppBtnTheme.CLEAR} onClick={switchLang}>{t('Язык')}</AppBtn>
         </div>
     );
-};
+});

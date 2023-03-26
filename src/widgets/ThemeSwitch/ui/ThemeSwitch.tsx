@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import React from 'react';
+import React, { memo } from 'react';
 import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import DarkThemeIcon from 'shared/assets/icons/theme-dark.svg';
 import LightThemeIcon from 'shared/assets/icons/theme-light.svg';
@@ -9,7 +9,7 @@ interface IThemeSwitchProps {
     className?: string
 }
 
-export const ThemeSwitch = ({ className }: IThemeSwitchProps) => {
+export const ThemeSwitch = memo(({ className }: IThemeSwitchProps) => {
     const { theme, changeTheme } = useTheme();
 
     return (
@@ -25,4 +25,4 @@ export const ThemeSwitch = ({ className }: IThemeSwitchProps) => {
             }
         </AppBtn>
     );
-};
+});

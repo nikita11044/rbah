@@ -2,9 +2,10 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { AppBtn, AppInput, AppText } from 'shared/ui';
 import { useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { AppTextTheme } from 'shared/ui/AppText/AppText';
 import { DynamicDataLoader, ReducerList } from 'shared/lib/DinamicDataLoader/DynamicDataLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { getPassword } from '../../model/selectors/getPassword/getPassword';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getIsLoginLoading } from '../../model/selectors/getIsLoginLoading/getIsLoginLoading';
@@ -15,15 +16,16 @@ import styles from './LoginForm.module.scss';
 
 export interface ILoginFormProps {
     className?: string
+    onSuccess: () => void
 }
 
 const reducers: ReducerList = {
     login: loginReducer,
 };
 
-const LoginForm = ({ className }: ILoginFormProps) => {
+const LoginForm = ({ className, onSuccess }: ILoginFormProps) => {
     const { t } = useTranslation();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const username = useSelector(getUsername);
     const password = useSelector(getPassword);
@@ -38,9 +40,12 @@ const LoginForm = ({ className }: ILoginFormProps) => {
         dispatch(loginActions.setPassword(value));
     }, [dispatch]);
 
-    const handleLoginClick = useCallback(() => {
-        dispatch(loginByUsername({ username, password }));
-    }, [dispatch, password, username]);
+    const handleLoginClick = useCallback(async () => {
+        const res = await dispatch(loginByUsername({ username, password }));
+        if (res.meta.requestStatus === 'fulfilled') {
+            onSuccess();
+        }
+    }, [dispatch, onSuccess, password, username]);
 
     return (
         <DynamicDataLoader reducers={reducers} removeOnUnmount>

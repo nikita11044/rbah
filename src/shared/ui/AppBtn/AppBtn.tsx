@@ -1,5 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ButtonHTMLAttributes, FC } from 'react';
+import {
+    ButtonHTMLAttributes, FC, memo, ReactNode,
+} from 'react';
 import styles from './AppBtn.module.scss';
 
 export enum AppBtnTheme {
@@ -17,13 +19,14 @@ export enum AppBtnSize {
 
 interface IAppBtnProps extends ButtonHTMLAttributes<HTMLButtonElement>{
     className?: string
-    theme?: AppBtnTheme,
-    square?: boolean,
-    size?: AppBtnSize,
+    theme?: AppBtnTheme
+    square?: boolean
+    size?: AppBtnSize
     disabled?: boolean
+    children?: ReactNode
 }
 
-export const AppBtn: FC<IAppBtnProps> = (props) => {
+export const AppBtn: FC<IAppBtnProps> = memo((props: IAppBtnProps) => {
     const {
         className,
         children,
@@ -56,4 +59,4 @@ export const AppBtn: FC<IAppBtnProps> = (props) => {
             {children}
         </button>
     );
-};
+});

@@ -1,5 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import React, { InputHTMLAttributes, useEffect, useState } from 'react';
+import React, {
+    InputHTMLAttributes, memo, useEffect, useState,
+} from 'react';
 import styles from './AppInput.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
@@ -10,7 +12,7 @@ interface IAppInputProps extends HTMLInputProps {
     onChange: (value: string) => void,
 }
 
-export const AppInput = ({
+export const AppInput = memo(({
     className,
     value,
     onChange,
@@ -34,4 +36,4 @@ export const AppInput = ({
             </div>
         </div>
     );
-};
+});

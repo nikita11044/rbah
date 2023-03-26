@@ -3,12 +3,14 @@ import { ILoginSchema } from 'features/AuthByUsername';
 import {
     AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
+import { IProfileSchema } from 'entities/Profile';
 
 export interface IGlobalStateSchema {
     user: IUserSchema,
 
     // Async reducers
     login?: ILoginSchema
+    profile?: IProfileSchema
 }
 
 export type GlobalStateSchemaKey = keyof IGlobalStateSchema

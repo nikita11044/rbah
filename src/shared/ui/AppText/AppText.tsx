@@ -1,4 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
+import { memo } from 'react';
 import styles from './AppText.module.scss';
 
 export enum AppTextTheme {
@@ -13,11 +14,11 @@ interface IAppTextProps {
     theme?: AppTextTheme
 }
 
-export const AppText = ({
+export const AppText = memo(({
     className, title, text, theme,
 }: IAppTextProps) => (
     <div className={classNames(styles.AppText, { [styles[theme]]: true }, [className])}>
         {title && <p className={styles.title}>{title}</p>}
         {text && <p className={styles.text}>{text}</p>}
     </div>
-);
+));
