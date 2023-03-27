@@ -1,5 +1,4 @@
 import { IGlobalStateSchema } from 'app/providers/StoreProvider';
-import { DeepPartial } from '@reduxjs/toolkit';
 import { getIsLoginLoading } from './getIsLoginLoading';
 
 describe('getIsLoginLoading', () => {

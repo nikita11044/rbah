@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import React, {
     ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
@@ -30,7 +30,7 @@ export const AppModal = ({
 
     const { theme } = useTheme();
 
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
         [styles.open]: isOpen,
         [styles.isClosing]: isClosing,
     };

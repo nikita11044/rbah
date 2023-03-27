@@ -15,7 +15,10 @@ interface IAppTextProps {
 }
 
 export const AppText = memo(({
-    className, title, text, theme,
+    className,
+    title,
+    text,
+    theme = AppTextTheme.PRIMARY,
 }: IAppTextProps) => (
     <div className={classNames(styles.AppText, { [styles[theme]]: true }, [className])}>
         {title && <p className={styles.title}>{title}</p>}

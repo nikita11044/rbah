@@ -1,5 +1,4 @@
 import { IGlobalStateSchema } from 'app/providers/StoreProvider';
-import { DeepPartial } from '@reduxjs/toolkit';
 import { getUsername } from './getUsername';
 
 describe('getUsername', () => {

@@ -31,7 +31,7 @@ export interface IStoreWithReducerManager extends EnhancedStore<IGlobalStateSche
 
 interface IThunkExtra {
     api: AxiosInstance,
-    navigate: (to: To, options?: NavigateOptions) => void,
+    navigate?: (to: To, options?: NavigateOptions) => void,
 }
 
 export interface IThunkOptions<T> {

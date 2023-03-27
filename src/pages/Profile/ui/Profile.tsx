@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import { memo, useEffect } from 'react';
 import { DynamicDataLoader, ReducerList } from 'shared/lib/DinamicDataLoader/DynamicDataLoader';
 import { fetchProfile, ProfileCard, profileReducer } from 'entities/Profile';
@@ -15,7 +14,6 @@ interface IProfileProps {
 }
 
 const Profile = memo(({ className }: IProfileProps) => {
-    const { t } = useTranslation();
     const dispatch = useAppDispatch();
 
     useEffect(() => {

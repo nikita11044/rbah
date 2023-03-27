@@ -8,8 +8,6 @@ export type ReducerList = {
     [name in GlobalStateSchemaKey]?: Reducer
 }
 
-type ReducerListItem = [GlobalStateSchemaKey, Reducer]
-
 interface IDynamicDataLoaderProps {
     reducers: ReducerList
     removeOnUnmount?: boolean
@@ -20,15 +18,15 @@ export const DynamicDataLoader: FC<IDynamicDataLoaderProps> = ({ children, reduc
     const dispatch = useDispatch();
 
     useEffect(() => {
-        Object.entries(reducers).forEach(([name, reducer]: ReducerListItem) => {
-            store.reducerManager.add(name, reducer);
+        Object.entries(reducers).forEach(([name, reducer]) => {
+            store.reducerManager.add(name as GlobalStateSchemaKey, reducer);
             dispatch({ type: `@ADD ${name} reducer` });
         });
 
         return () => {
             if (removeOnUnmount) {
-                Object.entries(reducers).forEach(([name]: ReducerListItem) => {
-                    store.reducerManager.remove(name);
+                Object.entries(reducers).forEach(([name]) => {
+                    store.reducerManager.remove(name as GlobalStateSchemaKey);
                     dispatch({ type: `@REMOVE ${name} reducer` });
                 });
             }

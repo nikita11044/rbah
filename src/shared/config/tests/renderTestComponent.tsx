@@ -4,7 +4,6 @@ import { I18nextProvider } from 'react-i18next';
 import i18nTestInstance from 'shared/config/i18n/i18nTestInstance';
 import { MemoryRouter } from 'react-router-dom';
 import { StoreProvider } from 'app/providers/StoreProvider';
-import { DeepPartial } from '@reduxjs/toolkit';
 import { IGlobalStateSchema } from 'app/providers/StoreProvider/config/stateSchema';
 
 export interface ITestComponentOptions {
