@@ -2,11 +2,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { IThunkOptions } from 'app/providers/StoreProvider';
 import { IProfile } from '../../types/profileSchema';
 
-interface ILoginByUsernameProps {
-    username: string
-    password: string
-}
-
 export const fetchProfile = createAsyncThunk<
     IProfile,
     void,
