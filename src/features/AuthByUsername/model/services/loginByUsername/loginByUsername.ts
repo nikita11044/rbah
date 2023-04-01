@@ -28,8 +28,7 @@ export const loginByUsername = createAsyncThunk<
 
             return response.data;
         } catch (e) {
-            console.error(e);
+            return rejectWithValue('error');
         }
-        return rejectWithValue('error');
     },
 );
