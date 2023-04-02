@@ -2,5 +2,9 @@
   "Профиль": "Profile",
   "Редактировать": "Edit",
   "Имя": "First name",
-  "Фамилия": "Last name"
+  "Фамилия": "Last name",
+  "При загрузке профиля произошла ошибка": "Error occurred while fetching profile",
+  "Попробуйте обновить страницу": "Try refreshing the page",
+  "Отменить": "Cancel",
+  "Сохранить": "Save"
 }

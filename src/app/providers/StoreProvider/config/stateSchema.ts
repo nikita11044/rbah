@@ -37,4 +37,5 @@ interface IThunkExtra {
 export interface IThunkOptions<T> {
     rejectValue: T
     extra: IThunkExtra
+    state: IGlobalStateSchema
 }

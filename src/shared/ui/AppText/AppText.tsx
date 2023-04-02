@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
 import styles from './AppText.module.scss';
 
@@ -7,11 +7,18 @@ export enum AppTextTheme {
     ERROR = 'error'
 }
 
+export enum TextAlign {
+    RIGHT = 'right',
+    LEFT = 'left',
+    CENTER = 'center'
+}
+
 interface IAppTextProps {
     className?: string
     title?: string
     text?: string
     theme?: AppTextTheme
+    align?: TextAlign
 }
 
 export const AppText = memo(({
@@ -19,9 +26,17 @@ export const AppText = memo(({
     title,
     text,
     theme = AppTextTheme.PRIMARY,
-}: IAppTextProps) => (
-    <div className={classNames(styles.AppText, { [styles[theme]]: true }, [className])}>
-        {title && <p className={styles.title}>{title}</p>}
-        {text && <p className={styles.text}>{text}</p>}
-    </div>
-));
+    align = TextAlign.LEFT,
+}: IAppTextProps) => {
+    const mods: Mods = {
+        [styles[theme]]: true,
+        [styles[align]]: true,
+    };
+
+    return (
+        <div className={classNames(styles.AppText, mods, [className])}>
+            {title && <p className={styles.title}>{title}</p>}
+            {text && <p className={styles.text}>{text}</p>}
+        </div>
+    );
+});

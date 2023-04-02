@@ -6,6 +6,7 @@ import styles from './AppBtn.module.scss';
 
 export enum AppBtnTheme {
     OUTLINE = 'outline',
+    OUTLINE_RED = 'outline_red',
     CLEAR = 'clear',
     BACKGROUND = 'background',
     BACKGROUND_INVERTED = 'background_inverted',

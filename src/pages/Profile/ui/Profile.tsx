@@ -1,9 +1,10 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useEffect } from 'react';
 import { DynamicDataLoader, ReducerList } from 'shared/lib/DinamicDataLoader/DynamicDataLoader';
-import { fetchProfile, ProfileCard, profileReducer } from 'entities/Profile';
+import { fetchProfile, profileReducer } from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import styles from './Profile.module.scss';
+import { EditProfile } from 'features/EditProfile';
+import { ProfileHeader } from '../ui/ProfileHeader/ProfileHeader';
 
 const defaultReducers: ReducerList = {
     profile: profileReducer,
@@ -22,8 +23,9 @@ const Profile = memo(({ className }: IProfileProps) => {
 
     return (
         <DynamicDataLoader reducers={defaultReducers} removeOnUnmount>
-            <div className={classNames(styles.Profile, {}, [className])}>
-                <ProfileCard />
+            <div className={classNames('', {}, [className])}>
+                <ProfileHeader />
+                <EditProfile />
             </div>
         </DynamicDataLoader>
     );

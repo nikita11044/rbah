@@ -7,6 +7,7 @@ import ProfileIcon from 'shared/assets/icons/profile.svg';
 export interface ISidebarItem {
     path: string
     text: string
+    private?: boolean
     Icon: VFC<SVGProps<SVGSVGElement>>
 }
 
@@ -25,5 +26,6 @@ export const SidebarItems: ISidebarItem[] = [
         path: RoutePath.profile,
         Icon: ProfileIcon,
         text: 'Профиль',
+        private: true,
     },
 ];
