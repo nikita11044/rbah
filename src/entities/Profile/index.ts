@@ -8,3 +8,4 @@ export { getProfileError } from './model/selectors/getProfileError/getProfileErr
 export { getProfileData } from './model/selectors/getProfileData/getProfileData';
 export { getProfileReadOnly } from './model/selectors/getProfileReadOnly/getProfileReadOnly';
 export { getProfileFormData } from './model/selectors/getProfileFormData/getProfileFormData';
+export { getProfileValidationErrors } from './model/selectors/getProfileValidationErrors/getProfileValidationErrors';
