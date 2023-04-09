@@ -5,4 +5,5 @@ export interface IUser {
 
 export interface IUserSchema {
     auth?: IUser
+    _init: boolean
 }

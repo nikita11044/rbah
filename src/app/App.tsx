@@ -5,8 +5,8 @@ import { AppRouter } from 'app/providers/router';
 import { Navbar } from 'widgets/Navbar/ui/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import { Loader } from 'widgets/Loader';
-import { useDispatch } from 'react-redux';
-import { userActions } from 'entities/User';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserInit, userActions } from 'entities/User';
 
 function App() {
     const { theme } = useTheme();
@@ -16,13 +16,15 @@ function App() {
         dispatch(userActions.initAuthData());
     }, [dispatch]);
 
+    const init = useSelector(getUserInit);
+
     return (
         <div className={classNames('app', {}, [theme])}>
             <Suspense fallback={<Loader />}>
                 <Navbar />
                 <div className="content">
                     <Sidebar />
-                    <AppRouter />
+                    {init && <AppRouter />}
                 </div>
             </Suspense>
         </div>
