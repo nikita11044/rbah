@@ -6,14 +6,14 @@ import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { Country } from 'entities/Country/model/types/country';
 import { Currency } from 'entities/Currency';
 import AvatarTestImg from 'shared/assets/tests/storybook-avatar-test.jpeg';
-import Profile from './Profile';
+import { EditProfile } from 'features/EditProfile';
 
 export default {
-    title: 'pages/Profile',
-    component: Profile,
-} as ComponentMeta<typeof Profile>;
+    title: 'features/EditProfile',
+    component: EditProfile,
+} as ComponentMeta<typeof EditProfile>;
 
-const Template: ComponentStory<typeof Profile> = (args) => <Profile />;
+const Template: ComponentStory<typeof EditProfile> = (args) => <EditProfile />;
 
 export const Light = Template.bind({});
 

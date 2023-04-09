@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
 import { userActions } from 'entities/User';
-import { AsyncThunkTest } from 'shared/config/tests/AsyncThunkTest';
+import { AsyncThunkTest } from 'shared/lib/tests/AsyncThunkTest';
 
 describe('loginByUsername', () => {
     test('successful login', async () => {

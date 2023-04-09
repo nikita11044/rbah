@@ -19,10 +19,13 @@ export class AsyncThunkTest<Return, Arg, RejectVal> {
 
     actionCreator: ActionCreator<Return, Arg, RejectVal>;
 
-    constructor(actionCreator: ActionCreator<Return, Arg, RejectVal>) {
+    constructor(
+        actionCreator: ActionCreator<Return, Arg, RejectVal>,
+        state?: DeepPartial<IGlobalStateSchema>,
+    ) {
         this.actionCreator = actionCreator;
         this.dispatch = jest.fn();
-        this.getState = jest.fn();
+        this.getState = jest.fn(() => state as IGlobalStateSchema);
         this.navigate = jest.fn();
         this.api = axiosMock;
     }

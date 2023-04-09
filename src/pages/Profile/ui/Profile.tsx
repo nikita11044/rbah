@@ -18,7 +18,9 @@ const Profile = memo(({ className }: IProfileProps) => {
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        dispatch(fetchProfile());
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchProfile());
+        }
     }, [dispatch]);
 
     return (
