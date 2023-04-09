@@ -1,27 +1,10 @@
 import webpack from 'webpack';
 import { IBuildOptions } from './types/config';
 import { configureCssLoader } from './loaders/configureCssLoader';
+import { buildBabelLoader } from './loaders/configureBabelLoader';
 
 export function getLoaders({ isDev }: IBuildOptions): webpack.RuleSetRule[] {
-    const babelLoader = {
-        test: /\.(js|jsx|tsx)$/,
-        exclude: /node_modules/,
-        use: {
-            loader: 'babel-loader',
-            options: {
-                presets: ['@babel/preset-env'],
-                plugins: [
-                    [
-                        'i18next-extract',
-                        {
-                            locales: ['ru', 'en'],
-                            keyAsDefaultValue: true,
-                        },
-                    ],
-                ],
-            },
-        },
-    };
+    const babelLoader = buildBabelLoader(isDev);
 
     const svgLoader = {
         test: /\.svg$/,
