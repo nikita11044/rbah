@@ -7,7 +7,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import styles from './ProfileHeader.module.scss';
 
 export const ProfileHeader = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('profile');
 
     const readOnly = useSelector(getProfileReadOnly);
     const dispatch = useAppDispatch();

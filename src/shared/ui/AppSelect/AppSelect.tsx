@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { Mods, classNames } from 'shared/lib/classNames/classNames';
 import { ChangeEvent, memo, useMemo } from 'react';
 import styles from './AppSelect.module.scss';
 
@@ -39,8 +39,12 @@ export const AppSelect = memo(({
         </option>
     )), [options]);
 
+    const mods: Mods = {
+        [styles.readOnly]: readonly,
+    };
+
     return (
-        <div className={classNames(styles.AppSelectWrapper, {}, [className])}>
+        <div className={classNames(styles.AppSelectWrapper, mods, [className])}>
             {
                 label && <span className={styles.label}>{`${label}>`}</span>
             }

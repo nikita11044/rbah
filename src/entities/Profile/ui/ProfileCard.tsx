@@ -7,7 +7,6 @@ import {
 import { IProfile } from 'entities/Profile';
 import { Loader } from 'widgets/Loader';
 import { AppTextTheme, TextAlign } from 'shared/ui/AppText/AppText';
-import { AppSelect } from 'shared/ui/AppSelect/AppSelect';
 import { Currency } from 'entities/Currency/model/types/currency';
 import { SelectCurrency } from 'entities/Currency';
 import { Country } from 'entities/Country/model/types/country';
