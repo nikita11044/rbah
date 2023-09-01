@@ -7,6 +7,7 @@ import { IProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
 import { To } from '@remix-run/router';
 import { NavigateOptions } from 'react-router';
+import { IArticleDetailsSchema } from 'entities/Article';
 
 export interface IGlobalStateSchema {
     user: IUserSchema,
@@ -14,6 +15,7 @@ export interface IGlobalStateSchema {
     // Async reducers
     login?: ILoginSchema
     profile?: IProfileSchema
+    articleDetails?: IArticleDetailsSchema
 }
 
 export type GlobalStateSchemaKey = keyof IGlobalStateSchema

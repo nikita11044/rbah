@@ -4,6 +4,7 @@ import { AppModal } from './AppModal/AppModal';
 import { AppInput } from './AppInput/AppInput';
 import { AppText } from './AppText/AppText';
 import { AppAvatar } from './AppAvatar/AppAvatar';
+import { AppSkeleton } from './AppSkeleton/AppSkeleton';
 
 export {
     AppLink,
@@ -14,4 +15,5 @@ export {
     AppInput,
     AppText,
     AppAvatar,
+    AppSkeleton,
 };
