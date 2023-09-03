@@ -1,4 +1,4 @@
-export enum IArticleBlockType {
+export enum ArticleBlockType {
     CODE = 'CODE',
     IMAGE = 'IMAGE',
     TEXT = 'TEXT'
@@ -6,22 +6,22 @@ export enum IArticleBlockType {
 
 export interface IArticleBlockBase {
     id: string
-    type: IArticleBlockType
+    type: ArticleBlockType
 }
 export interface IArticleTextBlock extends IArticleBlockBase {
-    type: IArticleBlockType.TEXT
+    type: ArticleBlockType.TEXT
     title?: string
-    paragraphs: string
+    paragraphs: string[]
 }
 
 export interface IArticleImageBlock extends IArticleBlockBase {
-    type: IArticleBlockType.IMAGE
+    type: ArticleBlockType.IMAGE
     src: string
     title: string
 }
 
 export interface IArticleCodeBlock extends IArticleBlockBase {
-    type: IArticleBlockType.CODE
+    type: ArticleBlockType.CODE
     code: string
 }
 
